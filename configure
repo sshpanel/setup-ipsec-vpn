@@ -14,3 +14,5 @@ else
 	text_info   "CentOS: \"yum install redhat-lsb-core\" or \"yum install redhat-lsb\" "
 	info  		"Then run this command again \"bash $0\" "
 fi
+
+echo $OS
