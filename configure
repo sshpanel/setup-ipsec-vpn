@@ -17,8 +17,10 @@ else
 fi
 
 if [ ${OS} == 'debian' ] || [ ${OS} == 'ubuntu' ]; then
+	success "Running on: ${OS}"!
 	bash vpnsetup.sh 
 elif [ ${OS} == 'centos' ]; then
+	success "Running on: ${OS}"!
 	bash vpnsetup_centos.sh
 else
 	danger     "Whoops! Unsupported OS Detected!: ${os}"
