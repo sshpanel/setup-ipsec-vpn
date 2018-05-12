@@ -1,0 +1,16 @@
+#!/bin/sh
+
+. $(dirname "$0")/extras/app-check.sh
+. $(dirname "$0")/extras/os-detector.sh
+. $(dirname "$0")/extras/string-helper.sh
+. $(dirname "$0")/extras/welcome-screen.sh
+
+
+if [[ "$(which lsb_release)" != "" ]]; then
+	OS=`$(lsb_release -i -s) | awk '{print tolower($0)}'`
+else
+	danger      "NO LSB Module found! Please install it by running command below:"
+	text_info   "Debian/Ubuntu: \"apt-get install lsb-core\" "
+	text_info   "CentOS: \"yum install redhat-lsb-core\" or \"yum install redhat-lsb\" "
+	info  		"Then run this command again \"bash $0\" "
+fi
