@@ -13,6 +13,13 @@ else
 	text_info   "Debian/Ubuntu: \"apt-get install lsb-core\" "
 	text_info   "CentOS: \"yum install redhat-lsb-core\" or \"yum install redhat-lsb\" "
 	info  		"Then run this command again \"bash $0\" "
+	exit 1
 fi
 
-echo $OS
+if [ ${OS} == 'debian' ] || [ ${OS} == 'ubuntu' ]; then
+	bash ../vpnsetup.sh 
+elif [ ${OS} == 'centos' ]; then
+	bash ../vpnsetup_centos.sh
+else
+	danger     "Whoops! Unsupported OS Detected!: ${os}"
+fi
