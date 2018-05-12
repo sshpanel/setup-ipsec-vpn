@@ -7,7 +7,7 @@
 
 
 if [[ "$(which lsb_release)" != "" ]]; then
-	OS=`$(lsb_release -i -s) | awk '{print tolower($0)}'`
+	OS=`echo $(lsb_release -i -s) | awk '{print tolower($0)}'`
 else
 	danger      "NO LSB Module found! Please install it by running command below:"
 	text_info   "Debian/Ubuntu: \"apt-get install lsb-core\" "
